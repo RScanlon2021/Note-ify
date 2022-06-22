@@ -1,0 +1,338 @@
+/* Box Model Hack */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap");
+
+:root {
+  --fretboard-height: 300;
+  --number-of-strings: 6;
+  --string-height: 8;
+  --half-string-height: calc(var(--string-height) / 2);
+
+  --string-top-position: calc(
+    var(--fretboard-height) / var(--number-of-strings) / 2 -
+      var(--half-string-height)
+  );
+  --double-fretmark-pos-1: calc(var(--fretboard-height) * 0.25);
+  --double-fretmark-pos-2: calc(var(--fretboard-height) * 0.75);
+  --noteDotOpacity: 0;
+  --noteDotColor: #4b4130;
+  --fret-width: 100;
+
+  --color-primary: #00baba;
+  --color-secondary: #9c3fe8;
+  --color-tertiary: #ff585f;
+  --color-primary-darker: #0a9898;
+  --color-secondary-darker: #8236c1;
+  --color-tertiary-darker: #fd424b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  background: #353535;
+  font-family: Lato, sans-serif;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--color-primary);
+  font-size: 1rem;
+  border: none;
+  padding: 1.25rem 4.5rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+.settings {
+  display: flex;
+  gap: 1rem;
+  color: white;
+  padding: 20px;
+  border-bottom: 1px solid darkgray;
+  background: #282828;
+}
+
+.accidental-selector,
+.frets-selector {
+  margin-left: 20px;
+}
+
+.fretboard {
+  display: flex;
+  flex-direction: column;
+  background-image: url(../images/maple.jpg);
+  width: 100%;
+  min-width: 500px;
+  height: calc(var(--fretboard-height) * 1px);
+  margin-top: 50px;
+}
+
+.string {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.string:before {
+  content: "";
+  width: 100%;
+  /* height: calc(var(--string-height) * 1px); */
+  background: linear-gradient(#eee, #999);
+  box-shadow: 76px 3px 10px #806233;
+  z-index: 1;
+  position: absolute;
+  top: calc(var(--string-top-position) * 1px);
+}
+
+.string:nth-child(1):before {
+  height: calc(var(--string-height-1) * 1px);
+}
+.string:nth-child(2):before {
+  height: calc(var(--string-height-2) * 1px);
+}
+.string:nth-child(3):before {
+  height: calc(var(--string-height-3) * 1px);
+}
+.string:nth-child(4):before {
+  height: calc(var(--string-height-4) * 1px);
+}
+.string:nth-child(5):before {
+  height: calc(var(--string-height-5) * 1px);
+}
+.string:nth-child(6):before {
+  height: calc(var(--string-height-6) * 1px);
+}
+
+.note-fret {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  border-right: 10px solid;
+  border-image: linear-gradient(to left, #777, #bbb, #777) 1 100%;
+}
+
+.note-fret:first-child {
+  background: #161717;
+  min-width: 76px;
+  border-right: 12px solid;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-image: linear-gradient(to left, #bbb, #fff, #bbb) 1 100%;
+}
+
+.note-fret:before {
+  content: attr(data-note);
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  line-height: 33px;
+  text-align: center;
+  background: teal;
+  z-index: 2;
+  color: lightgray;
+  opacity: var(--noteDotOpacity);
+}
+
+/* .note-fret:nth-child(2):before {
+  width: calc(var(--fret-width) * 1.403 * 1px);
+} */
+
+.single-fretmark:after,
+.double-fretmark:before,
+.double-fretmark:after {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--noteDotColor);
+}
+
+.single-fretmark:after {
+  top: calc(var(--fretboard-height) / 2 * 1px);
+  transform: translate(0, -50%);
+}
+
+.double-fretmark:before {
+  top: calc(var(--double-fretmark-pos-1) * 1px);
+  transform: translate(-140%, -50%);
+}
+.double-fretmark:after {
+  top: calc(var(--double-fretmark-pos-2) * 1px);
+  transform: translate(-140%, -50%);
+}
+
+.note-name-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  color: white;
+  font-weight: 100;
+  font-size: 2.5em;
+}
+
+.note-name-section span {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.note-name-section span:hover {
+  color: #00baba;
+}
+/******************************************
+/* COUNTDOWN TIMER STYLES
+/*******************************************/
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+  /* padding-top: 100px; */
+  background: url(../images/guitarHero.jpg) no-repeat center center;
+  background-size: cover;
+  background-position: left;
+}
+
+.timer {
+  display: flex;
+  justify-content: space-between;
+
+  border: 1px solid black;
+  border-radius: 30px;
+  padding: 24px;
+  background-color: #e7b86b;
+}
+
+.timer__part {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.timer__btn {
+  width: 50px;
+  height: 50px;
+  margin-left: 1rem;
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+  color: white;
+}
+
+.timer__btn--start {
+  background-color: var(--color-primary);
+}
+
+.timer__btn--stop {
+  background-color: var(--color-tertiary);
+}
+
+/******************************************
+/* EXERCISE TAB STYLES
+/*******************************************/
+.exercises {
+  width: 100%;
+  margin: auto 0 auto;
+  background-color: #fff;
+}
+
+.exercises__tab-container {
+  display: flex;
+  justify-content: center;
+}
+
+.exercises__tab {
+  margin-right: 2.5rem;
+  transform: translateY(-50%);
+}
+
+.exercises__tab span {
+  margin-right: 1rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.exercises__tab--1 {
+  background-color: var(--color-secondary);
+}
+
+.exercises__tab--1:hover {
+  background-color: var(--color-secondary-darker);
+}
+
+.exercises__tab--2 {
+  background-color: var(--color-primary);
+}
+
+.exercises__tab--2:hover {
+  background-color: var(--color-primary-darker);
+}
+
+.exercises__tab--3 {
+  background-color: var(--color-tertiary);
+  margin: 0;
+}
+
+.exercises__tab--3:hover {
+  background-color: var(--color-tertiary-darker);
+}
+
+.exercises__tab--active {
+  transform: translateY(-66%);
+}
+
+.exercises__content {
+  display: none;
+  /* 
+  font-size: 1.2rem;
+  padding: 2.5rem 7rem 6.5rem 7rem; */
+}
+
+.exercises__content--active {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 1.2rem;
+  padding: 2.5rem 7rem 6.5rem 7rem;
+  row-gap: 2rem;
+}
+
+.exercises__header {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.exercises__content ul {
+  list-style: none;
+  padding-top: 10px;
+}

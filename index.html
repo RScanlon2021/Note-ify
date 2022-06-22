@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Your description goes here" />
+    <meta name="keywords" content="one, two, three" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <title>Note-ify</title>
+    <script defer src="js/main.js"></script>
+
+    <!-- external CSS link -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="shortcut icon" href="#" />
+  </head>
+  <body>
+    <div class="settings">
+      <label for="instrument-selector">Selected Instrument</label>
+      <select name="instrument-selector" id="instrument-selector"></select>
+      <label for="wood-selector">Tonewood</label>
+      <select name="wood-selector" id="wood-selector"></select>
+      <div class="accidental-selector">
+        <input
+          type="radio"
+          class="acc-select"
+          id="sharps"
+          name="accidentals"
+          value="sharps"
+          checked
+        />
+        <label for="sharps">♯</label>
+        <input
+          type="radio"
+          class="acc-select"
+          id="flats"
+          name="accidentals"
+          value="flats"
+        />
+        <label for="flats">♭</label>
+      </div>
+      <div class="frets-selector">
+        <!-- <label for="frets-selector">No. of Frets</label> -->
+        <input
+          type="radio"
+          class="fret-select"
+          id="fret-12"
+          name="frets"
+          value="12"
+          checked
+        />
+        <label for="fret-12">12</label>
+        <input
+          type="radio"
+          class="fret-select"
+          id="fret-21"
+          name="frets"
+          value="21"
+        />
+        <label for="fret-21">21</label>
+        <input
+          type="radio"
+          class="fret-select"
+          id="fret-24"
+          name="frets"
+          value="24"
+        />
+        <label for="fret-24">24</label>
+      </div>
+      <label for="show-all-notes">Show All Notes</label>
+      <input type="checkbox" id="show-all-notes" />
+
+      <label for="show-multiple-notes">Show Multiple Notes</label>
+      <input type="checkbox" id="show-multiple-notes" />
+    </div>
+
+    <div class="fretboard"></div>
+    <div class="note-name-section"></div>
+
+    <div class="timer-container">
+      <div class="timer">
+        <span class="timer__part timer__part--minutes">00</span>
+        <span class="timer__part"> : </span>
+        <span class="timer__part timer__part--seconds">00</span>
+        <button
+          type="button"
+          class="timer__btn timer__btn--control timer__btn--start"
+        ></button>
+        <button
+          type="button"
+          class="timer__btn timer__btn--control timer__btn--reset"
+        >
+          <span class="material-symbols-outlined"> timer</span>
+        </button>
+      </div>
+    </div>
+    <div class="exercises">
+      <div class="exercises__tab-container">
+        <button
+          class="btn exercises__tab exercises__tab--1 exercises__tab--active"
+          data-tab="1"
+        >
+          Beginner
+        </button>
+
+        <button class="btn exercises__tab exercises__tab--2" data-tab="2">
+          Intermediate
+        </button>
+
+        <button class="btn exercises__tab exercises__tab--3" data-tab="3">
+          Advanced
+        </button>
+      </div>
+      <div
+        class="exercises__content exercises__content--1 exercises__content--active"
+      >
+        <h5 class="exercises__header">Exercise One</h5>
+        <ol class="exercise-list">
+          <li>Frets 1-12 with no open strings</li>
+          <li>Pick ONE natural note (no sharps or flats)</li>
+          <li>
+            Play notes in ascending order from the 6th (low E) string to the 1st
+            (high E) string
+          </li>
+          <li>
+            Once you reach the note on the 1st string reverse the order back up
+            to the 6th string picking the same notes as you go
+          </li>
+          <li>
+            If you can repeat the exercise 3 times without mistakes then you're
+            ready to move on to the next note
+          </li>
+          <li>
+            Now, pick the next note you want to learn and repeat the exercise
+            TWICE
+          </li>
+        </ol>
+        <h5 class="exercises__header">Exercise Two</h5>
+        <ol>
+          <li>
+            IF you've completed this exercise without making any mistakes then
+            do it again except this time do it for the sharps and then the flats
+          </li>
+        </ol>
+        <ul>
+          <li>* YES you can display the notes as you play</li>
+          <li>
+            ** You do NOT need to memorise the location of the notes. Like
+            learning to type, your fingers will remember their location the more
+            you practice
+          </li>
+        </ul>
+      </div>
+      <div class="exercises__content exercises__content--2">
+        <h5 class="exercises__header">Exercise One</h5>
+        <ol class="exercise-list">
+          <li>
+            Similar to the Beginner exercise except this time pick TWO notes
+          </li>
+          <li>Ascend for the first note, and descend for the second note</li>
+          <li>Perform this exercise for all natural notes TWICE</li>
+        </ol>
+        <h5 class="exercises__header">Exercise Two</h5>
+        <ol>
+          <li>
+            IF you've completed this exercise without making any mistakes then
+            do it again except this time do it for the sharps and then the flats
+          </li>
+        </ol>
+        <h5 class="exercises__header">Exercise Three</h5>
+        <ol class="exercise-list">
+          <li>
+            Set the TIMER to a time you feel slightly uncomfortable with and
+            perform any of the previous exercises, trying your best to get all
+            the notes within that time
+          </li>
+          <li>Reduce the time and repeat</li>
+        </ol>
+        <ul>
+          <li>* YES you can display the notes as you play</li>
+          <li>
+            ** You do NOT need to memorise the location of the notes. Like
+            learning to type, your fingers will remember their location the more
+            you practice
+          </li>
+        </ul>
+      </div>
+      <div class="exercises__content exercises__content--3">
+        <h5 class="exercises__header">Exercise One</h5>
+        <ol class="exercise-list">
+          <li>
+            Choose a random note (natural or accidentals), set the TIMER and
+            ascend and descend WITHOUT displaying the notes on the fretboard
+          </li>
+        </ol>
+        <h5 class="exercises__header">Exercise Two</h5>
+        <ol class="exercise-list">
+          <li>
+            Set the TIMER to an increasingly shorter limit and repeat the
+            previous exercise
+          </li>
+        </ol>
+        <ul>
+          <li>* DO NOT display the notes as you play</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
