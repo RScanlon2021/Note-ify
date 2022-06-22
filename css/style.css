@@ -86,7 +86,7 @@ body {
 .fretboard {
   display: flex;
   flex-direction: column;
-  background: url(../images/Maple.JPG);
+  background: url(../images/Maple.jpg);
   width: 100%;
   min-width: 500px;
   height: calc(var(--fretboard-height) * 1px);
@@ -219,7 +219,7 @@ body {
   height: 50vh;
   width: 100%;
   /* padding-top: 100px; */
-  background: url(../images/GuitarHero.JPG) no-repeat center center;
+  background: url(../images/guitarHero.jpg) no-repeat center center;
   background-size: cover;
   background-position: left;
 }
