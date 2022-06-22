@@ -86,6 +86,7 @@ body {
 .fretboard {
   display: flex;
   flex-direction: column;
+  background-color: #c7a262;
   background-image: url(../images/maple.jpg);
   width: 100%;
   min-width: 500px;
