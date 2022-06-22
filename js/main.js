@@ -194,7 +194,7 @@
     setSelectedWood(e) {
       selectedWood = e.target.value;
       tonewood = woodPresets[selectedWood];
-      fretboard.style.backgroundImage = tonewood;
+      fretboard.style.background = tonewood;
       if (selectedWood === "Ebony" || selectedWood === "Rosewood") {
         root.style.setProperty("--noteDotColor", "#b0966b");
       } else {
