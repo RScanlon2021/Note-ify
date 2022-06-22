@@ -55,9 +55,9 @@
   };
 
   const woodPresets = {
-    Maple: `url(../images/maple.jpg)`,
-    Ebony: `url(../images/ebony.jpg)`,
-    Rosewood: `url(../images/rosewood.jpg)`,
+    Maple: `url('../images/maple.jpg')`,
+    Ebony: `url('../images/ebony.jpg')`,
+    Rosewood: `url('../images/rosewood.jpg')`,
   };
 
   let numberOfFrets = 12;
@@ -194,7 +194,7 @@
     setSelectedWood(e) {
       selectedWood = e.target.value;
       tonewood = woodPresets[selectedWood];
-      fretboard.style.background = tonewood;
+      fretboard.style.backgroundImage = tonewood;
       if (selectedWood === "Ebony" || selectedWood === "Rosewood") {
         root.style.setProperty("--noteDotColor", "#b0966b");
       } else {
