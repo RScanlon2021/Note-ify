@@ -55,9 +55,9 @@
   };
 
   const woodPresets = {
-    Maple: "url('../images/maple.jpg')",
-    Ebony: "url('../images/ebony.jpg')",
-    Rosewood: "url('../images/rosewood.jpg')",
+    Maple: `url('../images/maple.jpg')`,
+    Ebony: `url('../images/ebony.jpg')`,
+    Rosewood: `url('../images/rosewood.jpg')`,
   };
 
   let numberOfFrets = 12;
