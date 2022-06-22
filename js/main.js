@@ -133,7 +133,6 @@
     setupWoodSelector() {
       for (wood in woodPresets) {
         let woodOption = tools.createElement("option", wood);
-        console.log(woodOption);
         woodSelector.appendChild(woodOption);
       }
     },
@@ -195,7 +194,7 @@
     setSelectedWood(e) {
       selectedWood = e.target.value;
       tonewood = woodPresets[selectedWood];
-      fretboard.style.background = tonewood;
+      fretboard.style.backgroundImage = tonewood;
       if (selectedWood === "Ebony" || selectedWood === "Rosewood") {
         root.style.setProperty("--noteDotColor", "#b0966b");
       } else {

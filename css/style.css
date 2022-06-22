@@ -86,7 +86,7 @@ body {
 .fretboard {
   display: flex;
   flex-direction: column;
-  background: url(../images/Maple.jpg);
+  background-image: url(../images/Maple.jpg);
   width: 100%;
   min-width: 500px;
   height: calc(var(--fretboard-height) * 1px);
@@ -313,9 +313,6 @@ body {
 
 .exercises__content {
   display: none;
-  /* 
-  font-size: 1.2rem;
-  padding: 2.5rem 7rem 6.5rem 7rem; */
 }
 
 .exercises__content--active {
